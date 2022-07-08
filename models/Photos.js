@@ -1,7 +1,9 @@
 const mongoose = require('../db/connection');
 
-const PhotosScheme = new mongoose.Scheme({
-
+const PhotosSchema = new mongoose.Schema({
+    image: String,
+    owner: String,
+    description: String,
 })
 
 const Photos = mongoose.model('Photos', PhotosSchema);
