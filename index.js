@@ -11,16 +11,14 @@ app.use(cors());
 // ROUTES
 // Redirect
 app.get('/', (req, res) => {
-	res.redirect('/api/portfolios');
+	res.redirect('/api/photos');
 });
 
 /* START CONTROLLERS HERE */
-const photosController = require('./controllers/portfoliosController');
+const photosController = require('./controller/photosController');
 
 // direct all requests to '/api/bookmarks' to the bookmarks controller
-app.use('/api/portfolios', portfoliosController);
-app.use('/api/projects', projectsController);
-app.use('/api/streetphotos', streetPhotosController);
+app.use('/api/photos', photosController);
 
 /* END CONTROLLERS HERE */
 app.use((err, req, res, next) => {
