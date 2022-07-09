@@ -32,4 +32,18 @@ router.post('/', async (req, res, next) => {
 	}
 });
 
+router.put('/:id', (req, res) => {
+	Photos.findByIdAndUpdate({ _id: req.params.id }, req.body, {
+		new: true,
+	}).then((photo) => {
+		res.json(photo);
+	});
+});
+
+router.delete('/:id', (req, res) => {
+	Photos.findByIdAndDelete({ _id: req.params.id }).then((delPhoto) => {
+		res.json(delPhoto);
+	})
+})
+
 module.exports = router;
